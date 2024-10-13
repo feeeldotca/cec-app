@@ -55,7 +55,7 @@
 
 <script>
 import { ref } from 'vue';
-import { useLoadStore } from '../store';
+import { useLoadStore } from '../store/index1';
 
 export default {
   setup() {

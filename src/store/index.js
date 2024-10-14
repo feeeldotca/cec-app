@@ -92,6 +92,10 @@ export const useLoadStore = defineStore('load', {
     setNumConductors(count) {
       this.numConductors = count;
     },
+     // Helper to check if the conduit fill is valid
+     calculateConduitFill(totalWireArea, conduitArea, maxFillPercentage = 0.4) {
+      return totalWireArea <= conduitArea * maxFillPercentage;
+    },
 
     // === LoadCalculator.vue Specific Actions ===
     calculateTotalLoad() {

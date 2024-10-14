@@ -418,14 +418,14 @@ export const tables = {
         bonding_jumper_size_copper: [8, 6, 4, 2, "0", "00", "000"],
         bonding_jumper_size_aluminum: [6, 4, 2, "0", "00", "000", "0000"]
     },
-  
+
     tableD3: [
-    // Table D3: 
-    // Current: The current property represents the current in amperes.
-    // Distances: The distances property is an object where the keys are the wire sizes (AWG) 
-    // and the values are the distances in meters for a 1% voltage drop.
-    // Distance to centre of distribution measured along the insulated conductor run, m
-    // (calculated for conductor insulation temperature of 60 °C)
+        // Table D3: 
+        // Current: The current property represents the current in amperes.
+        // Distances: The distances property is an object where the keys are the wire sizes (AWG) 
+        // and the values are the distances in meters for a 1% voltage drop.
+        // Distance to centre of distribution measured along the insulated conductor run, m
+        // (calculated for conductor insulation temperature of 60 °C)
         { current: 1.00, distances: { "18": 24.2, "16": 38.5, "14": 61.4 } },
         { current: 1.25, distances: { "18": 19.4, "16": 30.8, "14": 49.1 } },
         { current: 1.6, distances: { "18": 15.1, "16": 24.1, "14": 38.4, "12": 61.0 } },
@@ -528,428 +528,462 @@ export const tables = {
         }
     ],
     table6: {
-        wireTypes: {
-            table6A: [
-                "R90XLPE_UNJACKETED_600V",
-                "RW75XLPE_UNJACKETED_600V",
-                "RW90XLPE_UNJACKETED_600V"
-            ],
-            table6B: [
-                "R90XLPE_UNJACKETED_1000V",
-                "RW75XLPE_UNJACKETED_1000V",
-                "RW90XLPE_UNJACKETED_1000V"
-            ],
-            table6C: [
-                "R90XLPE_JACKETED_600V",
-                "RW75XLPE_JACKETED_600V",
-                "R90EP_JACKETED_600V",
-                "RW75EP_JACKETED_600V",
-                "RW90XLPE_JACKETED_600V",
-                "RW90EP_JACKETED_600V"
-            ],
-            table6D: [
-                "TWU_UNJACKETED",
-                "TWU75_UNJACKETED",
-                "RWU90XLPE_UNJACKETED"
-            ],
-            table6E: [
-                "RPVU90_UNJACKETED_1000V",
-                "RPVU90_UNJACKETED_2000V"
-            ],
-            table6F: [
-                "RPVU90_JACKETED_1000V",
-                "RPVU90_JACKETED_2000V"
-            ],
-            table6G: "RPV90_UNJACKETED_2000V",
-            table6H: "RPV90_JACKETED_1000V",
-            table6I: "RPV90_JACKETED_2000V",
-            table6J: ["TW", "TW75"],
-            table6K: ["TWN75", "T90_NYLON"]
-        },
-        wireSpecs: {
-            table6A: {
-                strandedConductors: {
-                    "14": { diameter: 3.36 },
-                    "12": { diameter: 3.84 },
-                    "10": { diameter: 4.47 },
-                    "8": { diameter: 5.99 },
-                    "6": { diameter: 6.95 },
-                    "4": { diameter: 8.17 },
-                    "3": { diameter: 8.88 },
-                    "2": { diameter: 9.70 },
-                    "1": { diameter: 11.23 },
-                    "1/0": { diameter: 12.27 },
-                    "2/0": { diameter: 13.44 },
-                    "3/0": { diameter: 14.74 },
-                    "4/0": { diameter: 16.21 },
-                    "250": { diameter: 17.90 },
-                    "300": { diameter: 19.30 },
-                    "350": { diameter: 20.53 },
-                    "400": { diameter: 21.79 },
-                    "450": { diameter: 22.91 },
-                    "500": { diameter: 23.95 },
-                    "600": { diameter: 26.74 },
-                    "700": { diameter: 28.55 },
-                    "750": { diameter: 29.41 },
-                    "800": { diameter: 30.25 },
-                    "900": { diameter: 31.85 },
-                    "1000": { diameter: 33.32 },
-                    "1250": { diameter: 37.56 },
-                    "1500": { diameter: 40.68 },
-                    "1750": { diameter: 43.58 },
-                    "2000": { diameter: 46.27 }
-                },
-                solidConductors: {
-                    "14": { diameter: 3.15 },
-                    "12": { diameter: 3.57 },
-                    "10": { diameter: 4.11 }
-                }
-            },
-            table6B: {
-                strandedConductors: {
-                    "14": { diameter: 4.12 },
-                    "12": { diameter: 4.6 },
-                    "10": { diameter: 5.23 },
-                    "8": { diameter: 5.99 },
-                    "6": { diameter: 7.71 },
-                    "4": { diameter: 8.93 },
-                    "3": { diameter: 9.64 },
-                    "2": { diameter: 10.46 },
-                    "1": { diameter: 12.49 },
-                    "1/0": { diameter: 13.53 },
-                    "2/0": { diameter: 14.7 },
-                    "3/0": { diameter: 16.0 },
-                    "4/0": { diameter: 17.47 },
-                    "250": { diameter: 19.17 },
-                    "300": { diameter: 20.56 },
-                    "350": { diameter: 21.79 },
-                    "400": { diameter: 23.05 },
-                    "450": { diameter: 24.17 },
-                    "500": { diameter: 25.21 },
-                    "600": { diameter: 27.24 },
-                    "700": { diameter: 29.05 },
-                    "750": { diameter: 29.91 },
-                    "800": { diameter: 30.75 },
-                    "900": { diameter: 32.35 },
-                    "1000": { diameter: 33.82 },
-                    "1250": { diameter: 38.32 },
-                    "1500": { diameter: 41.44 },
-                    "1750": { diameter: 44.34 },
-                    "2000": { diameter: 47.03 }
-                },
-                solidConductors: {
-                    "14": { diameter: 3.91 },
-                    "12": { diameter: 4.33 },
-                    "10": { diameter: 4.87 }
-                }
-            },
-            table6C: {
-                strandedConductors: {
-                    "14": { diameter: 4.12 },
-                    "12": { diameter: 4.6 },
-                    "10": { diameter: 5.23 },
-                    "8": { diameter: 6.75 },
-                    "6": { diameter: 8.47 },
-                    "4": { diameter: 9.69 },
-                    "3": { diameter: 10.4 },
-                    "2": { diameter: 11.22 },
-                    "1": { diameter: 13.51 },
-                    "1/0": { diameter: 14.55 },
-                    "2/0": { diameter: 15.72 },
-                    "3/0": { diameter: 17.02 },
-                    "4/0": { diameter: 18.49 },
-                    "250": { diameter: 21.21 },
-                    "300": { diameter: 22.6 },
-                    "350": { diameter: 23.83 },
-                    "400": { diameter: 25.09 },
-                    "450": { diameter: 26.21 },
-                    "500": { diameter: 27.25 },
-                    "600": { diameter: 30.04 },
-                    "700": { diameter: 31.85 },
-                    "750": { diameter: 32.71 },
-                    "800": { diameter: 33.55 },
-                    "900": { diameter: 35.15 },
-                    "1000": { diameter: 36.62 },
-                    "1250": { diameter: 42.38 },
-                    "1500": { diameter: 45.5 },
-                    "1750": { diameter: 48.4 },
-                    "2000": { diameter: 51.09 }
-                },
-                solidConductors: {
-                    "14": { diameter: 3.91 },
-                    "12": { diameter: 4.33 },
-                    "10": { diameter: 4.87 }
-                }
-            },
-            table6D: {
-                "14": { diameter: 4.88 },
-                "12": { diameter: 5.36 },
-                "10": { diameter: 5.97 },
-                "8": { diameter: 7.76 },
-                "6": { diameter: 8.72 },
-                "4": { diameter: 9.95 },
-                "3": { diameter: 10.67 },
-                "2": { diameter: 11.48 },
-                "1": { diameter: 13.25 },
-                "1/0": { diameter: 14.28 },
-                "2/0": { diameter: 15.45 },
-                "3/0": { diameter: 16.76 },
-                "4/0": { diameter: 18.28 },
-                "250": { diameter: 20.2 },
-                "300": { diameter: 21.54 },
-                "350": { diameter: 22.81 },
-                "400": { diameter: 24.07 },
-                "450": { diameter: 25.19 },
-                "500": { diameter: 26.24 },
-                "600": { diameter: 29.02 },
-                "700": { diameter: 30.82 },
-                "750": { diameter: 31.69 },
-                "800": { diameter: 32.53 },
-                "900": { diameter: 34.13 },
-                "1000": { diameter: 35.6 },
-                "1250": { diameter: 39.08 },
-                "1500": { diameter: 42.96 },
-                "1750": { diameter: 45.86 },
-                "2000": { diameter: 48.55 }
-            },
-            solidConductors: {
-                "14": { diameter: 4.67 },
-                "12": { diameter: 5.09 },
-                "10": { diameter: 5.63 }
-            }
-        },
+        wireData: new Map([
+            ["table6A", {
+                types: new Set([
+                    "R90XLPE_UNJACKETED_600V",
+                    "RW75XLPE_UNJACKETED_600V",
+                    "RW90XLPE_UNJACKETED_600V"
+                ]),
+                specs: {
 
-        table6E: {
-            strandedConductors: {
-                "14": { diameter: 4.89 },
-                "12": { diameter: 5.36 },
-                "10": { diameter: 5.99 },
-                "8": { diameter: 7.77 },
-                "6": { diameter: 8.73 },
-                "4": { diameter: 9.95 },
-                "3": { diameter: 10.66 },
-                "2": { diameter: 11.48 },
-                "1": { diameter: 13.25 },
-                "1/0": { diameter: 14.27 },
-                "2/0": { diameter: 15.44 },
-                "3/0": { diameter: 16.76 },
-                "4/0": { diameter: 18.23 },
-                "250": { diameter: 20.18 },
-                "300": { diameter: 21.58 },
-                "350": { diameter: 22.88 },
-                "400": { diameter: 24.07 },
-                "450": { diameter: 25.19 },
-                "500": { diameter: 26.23 },
-                "600": { diameter: 29.04 },
-                "700": { diameter: 30.85 },
-                "750": { diameter: 31.71 },
-                "800": { diameter: 32.52 },
-                "900": { diameter: 34.15 },
-                "1000": { diameter: 35.62 },
-                "1250": { diameter: 39.86 },
-                "1500": { diameter: 42.98 },
-                "1750": { diameter: 45.88 },
-                "2000": { diameter: 48.57 }
-            }
-        },
-        table6F: {
-            strandedConductors: {
-                "14": { diameter: 5.65 },
-                "12": { diameter: 6.12 },
-                "10": { diameter: 6.75 },
-                "8": { diameter: 9.29 },
-                "6": { diameter: 10.25 },
-                "4": { diameter: 11.47 },
-                "3": { diameter: 12.18 },
-                "2": { diameter: 13.76 },
-                "1": { diameter: 15.53 },
-                "1/0": { diameter: 16.55 },
-                "2/0": { diameter: 17.72 },
-                "3/0": { diameter: 19.04 },
-                "4/0": { diameter: 21.53 },
-                "250": { diameter: 23.48 },
-                "300": { diameter: 24.88 },
-                "350": { diameter: 26.18 },
-                "400": { diameter: 27.37 },
-                "450": { diameter: 28.49 },
-                "500": { diameter: 29.53 },
-                "600": { diameter: 32.34 },
-                "700": { diameter: 34.15 },
-                "750": { diameter: 35.01 },
-                "800": { diameter: 35.82 },
-                "900": { diameter: 37.45 },
-                "1000": { diameter: 38.92 },
-                "1250": { diameter: 44.68 },
-                "1500": { diameter: 47.8 },
-                "1750": { diameter: 50.7 },
-                "2000": { diameter: 53.39 }
-            }
-        },
-        table6G: {
-            strandedConductors: {
-                "14": { diameter: 4.89 },
-                "12": { diameter: 5.36 },
-                "10": { diameter: 5.99 },
-                "8": { diameter: 7.27 },
-                "6": { diameter: 8.23 },
-                "4": { diameter: 9.45 },
-                "3": { diameter: 10.16 },
-                "2": { diameter: 10.98 },
-                "1": { diameter: 13.01 },
-                "1/0": { diameter: 14.03 },
-                "2/0": { diameter: 15.2 },
-                "3/0": { diameter: 16.52 },
-                "4/0": { diameter: 17.99 },
-                "250": { diameter: 19.94 },
-                "300": { diameter: 21.34 },
-                "350": { diameter: 22.64 },
-                "400": { diameter: 23.83 },
-                "450": { diameter: 24.95 },
-                "500": { diameter: 25.99 },
-                "600": { diameter: 28.78 },
-                "700": { diameter: 30.59 },
-                "750": { diameter: 31.45 },
-                "800": { diameter: 32.26 },
-                "900": { diameter: 33.89 },
-                "1000": { diameter: 35.36 },
-                "1250": { diameter: 39.86 },
-                "1500": { diameter: 42.98 },
-                "1750": { diameter: 45.88 },
-                "2000": { diameter: 48.57 }
-            }
-        },
-        table6H: {
-            strandedConductors: {
-                "14": { diameter: 4.89 },
-                "12": { diameter: 5.36 },
-                "10": { diameter: 5.99 },
-                "8": { diameter: 7.51 },
-                "6": { diameter: 9.23 },
-                "4": { diameter: 10.45 },
-                "3": { diameter: 11.16 },
-                "2": { diameter: 11.98 },
-                "1": { diameter: 14.77 },
-                "1/0": { diameter: 15.79 },
-                "2/0": { diameter: 16.96 },
-                "3/0": { diameter: 18.28 },
-                "4/0": { diameter: 19.75 },
-                "250": { diameter: 22.46 },
-                "300": { diameter: 23.86 },
-                "350": { diameter: 25.16 },
-                "400": { diameter: 26.35 },
-                "450": { diameter: 27.47 },
-                "500": { diameter: 28.51 },
-                "600": { diameter: 30.54 },
-                "700": { diameter: 32.35 },
-                "750": { diameter: 33.21 },
-                "800": { diameter: 34.02 },
-                "900": { diameter: 35.65 },
-                "1000": { diameter: 37.12 },
-                "1250": { diameter: 43.14 },
-                "1500": { diameter: 46.26 },
-                "1750": { diameter: 49.16 },
-                "2000": { diameter: 51.85 }
-            }
-        },
-        table6I: {
-            strandedConductors: {
-                "14": { diameter: 5.65 },
-                "12": { diameter: 6.12 },
-                "10": { diameter: 7.51 },
-                "8": { diameter: 8.79 },
-                "6": { diameter: 9.75 },
-                "4": { diameter: 10.97 },
-                "3": { diameter: 11.68 },
-                "2": { diameter: 13.26 },
-                "1": { diameter: 15.29 },
-                "1/0": { diameter: 16.31 },
-                "2/0": { diameter: 17.48 },
-                "3/0": { diameter: 18.8 },
-                "4/0": { diameter: 21.29 },
-                "250": { diameter: 23.24 },
-                "300": { diameter: 24.64 },
-                "350": { diameter: 25.94 },
-                "400": { diameter: 27.13 },
-                "450": { diameter: 28.25 },
-                "500": { diameter: 29.29 },
-                "600": { diameter: 32.08 },
-                "700": { diameter: 33.89 },
-                "750": { diameter: 34.75 },
-                "800": { diameter: 35.56 },
-                "900": { diameter: 37.19 },
-                "1000": { diameter: 38.66 },
-                "1250": { diameter: 44.68 },
-                "1500": { diameter: 47.8 },
-                "1750": { diameter: 50.7 },
-                "2000": { diameter: 53.39 }
-            }
-        },
-        table6J: {
-            strandedConductors: {
-                "14": { diameter: 3.36 },
-                "12": { diameter: 3.84 },
-                "10": { diameter: 4.47 },
-                "8": { diameter: 5.99 },
-                "6": { diameter: 7.71 },
-                "4": { diameter: 8.93 },
-                "3": { diameter: 9.64 },
-                "2": { diameter: 10.46 },
-                "1": { diameter: 12.49 },
-                "1/0": { diameter: 13.53 },
-                "2/0": { diameter: 14.7 },
-                "3/0": { diameter: 16.0 },
-                "4/0": { diameter: 17.47 },
-                "250": { diameter: 19.43 },
-                "300": { diameter: 20.82 },
-                "350": { diameter: 22.05 },
-                "400": { diameter: 23.31 },
-                "450": { diameter: 24.43 },
-                "500": { diameter: 25.47 },
-                "600": { diameter: 28.26 },
-                "700": { diameter: 30.07 },
-                "750": { diameter: 30.93 },
-                "800": { diameter: 31.77 },
-                "900": { diameter: 33.37 },
-                "1000": { diameter: 34.84 },
-                "1250": { diameter: 39.08 },
-                "1500": { diameter: 42.2 },
-                "1750": { diameter: 45.1 },
-                "2000": { diameter: 47.79 }
-            },
-            solidConductors: {
-                "14": { diameter: 3.15 },
-                "12": { diameter: 3.57 },
-                "10": { diameter: 4.11 }
-            }
-        },
-        table6K: {
-            strandedConductors: {
-                "14": { diameter: 2.8 },
-                "12": { diameter: 3.28 },
-                "10": { diameter: 4.17 },
-                "8": { diameter: 5.49 },
-                "6": { diameter: 6.45 },
-                "4": { diameter: 8.23 },
-                "3": { diameter: 8.94 },
-                "2": { diameter: 9.76 },
-                "1": { diameter: 11.33 },
-                "1/0": { diameter: 12.37 },
-                "2/0": { diameter: 13.54 },
-                "3/0": { diameter: 14.84 },
-                "4/0": { diameter: 16.31 },
-                "250": { diameter: 18.04 },
-                "300": { diameter: 19.44 },
-                "350": { diameter: 20.67 },
-                "400": { diameter: 21.93 },
-                "450": { diameter: 23.05 },
-                "500": { diameter: 24.09 }
-            },
-            solidConductors: {
-                "14": { diameter: 2.59 },
-                "12": { diameter: 3.01 },
-                "10": { diameter: 3.81 }
-            }
-        }
+                    strandedConductors: new Map([
+                        ["14", { diameter: 3.36 }],
+                        ["12", { diameter: 3.84 }],
+                        ["10", { diameter: 4.47 }],
+                        ["8", { diameter: 5.99 }],
+                        ["6", { diameter: 6.95 }],
+                        ["4", { diameter: 8.17 }],
+                        ["3", { diameter: 8.88 }],
+                        ["2", { diameter: 9.70 }],
+                        ["1", { diameter: 11.23 }],
+                        ["1/0", { diameter: 12.27 }],
+                        ["2/0", { diameter: 13.44 }],
+                        ["3/0", { diameter: 14.74 }],
+                        ["4/0", { diameter: 16.21 }],
+                        ["250", { diameter: 17.90 }],
+                        ["300", { diameter: 19.30 }],
+                        ["350", { diameter: 20.53 }],
+                        ["400", { diameter: 21.79 }],
+                        ["450", { diameter: 22.91 }],
+                        ["500", { diameter: 23.95 }],
+                        ["600", { diameter: 26.74 }],
+                        ["700", { diameter: 28.55 }],
+                        ["750", { diameter: 29.41 }],
+                        ["800", { diameter: 30.25 }],
+                        ["900", { diameter: 31.85 }],
+                        ["1000", { diameter: 33.32 }],
+                        ["1250", { diameter: 37.56 }],
+                        ["1500", { diameter: 40.68 }],
+                        ["1750", { diameter: 43.58 }],
+                        ["2000", { diameter: 46.27 }]
+                    ]),
+                    solidConductors: new Map([
+                        ["14", { diameter: 3.15 }],
+                        ["12", { diameter: 3.57 }],
+                        ["10", { diameter: 4.11 }]
+                    ]),
+                }
+            }],
+            ["table6B", {
+                types: new Set([
+                    "R90XLPE_UNJACKETED_1000V",
+                    "RW75XLPE_UNJACKETED_1000V",
+                    "RW90XLPE_UNJACKETED_1000V"
+                ]),
+                specs: {
+                    strandedConductors: new Map([
+                        ["14", { diameter: 4.12 }],
+                        ["12", { diameter: 4.6 }],
+                        ["10", { diameter: 5.23 }],
+                        ["8", { diameter: 5.99 }],
+                        ["6", { diameter: 7.71 }],
+                        ["4", { diameter: 8.93 }],
+                        ["3", { diameter: 9.64 }],
+                        ["2", { diameter: 10.46 }],
+                        ["1", { diameter: 12.49 }],
+                        ["1/0", { diameter: 13.53 }],
+                        ["2/0", { diameter: 14.7 }],
+                        ["3/0", { diameter: 16.0 }],
+                        ["4/0", { diameter: 17.47 }],
+                        ["250", { diameter: 19.17 }],
+                        ["300", { diameter: 20.56 }],
+                        ["350", { diameter: 21.79 }],
+                        ["400", { diameter: 23.05 }],
+                        ["450", { diameter: 24.17 }],
+                        ["500", { diameter: 25.21 }],
+                        ["600", { diameter: 27.24 }],
+                        ["700", { diameter: 29.05 }],
+                        ["750", { diameter: 29.91 }],
+                        ["800", { diameter: 30.75 }],
+                        ["900", { diameter: 32.35 }],
+                        ["1000", { diameter: 33.82 }],
+                        ["1250", { diameter: 38.32 }],
+                        ["1500", { diameter: 41.44 }],
+                        ["1750", { diameter: 44.34 }],
+                        ["2000", { diameter: 47.03 }]
+                    ]),
+                    solidConductors: new Map([
+                        ["14", { diameter: 3.91 }],
+                        ["12", { diameter: 4.33 }],
+                        ["10", { diameter: 4.87 }]
+                    ])
+                }
+            }],
+            ["table6C", {
+                types: new Set([
+                    "R90XLPE_JACKETED_600V",
+                    "RW75XLPE_JACKETED_600V",
+                    "R90EP_JACKETED_600V",
+                    "RW75EP_JACKETED_600V",
+                    "RW90XLPE_JACKETED_600V",
+                    "RW90EP_JACKETED_600V"
+                ]),
+                specs: {
+                    strandedConductors: new Map([
+                        ["14", { diameter: 4.12 }],
+                        ["12", { diameter: 4.6 }],
+                        ["10", { diameter: 5.23 }],
+                        ["8", { diameter: 6.75 }],
+                        ["6", { diameter: 8.47 }],
+                        ["4", { diameter: 9.69 }],
+                        ["3", { diameter: 10.4 }],
+                        ["2", { diameter: 11.22 }],
+                        ["1", { diameter: 13.51 }],
+                        ["1/0", { diameter: 14.55 }],
+                        ["2/0", { diameter: 15.72 }],
+                        ["3/0", { diameter: 17.02 }],
+                        ["4/0", { diameter: 18.49 }],
+                        ["250", { diameter: 21.21 }],
+                        ["300", { diameter: 22.6 }],
+                        ["350", { diameter: 23.83 }],
+                        ["400", { diameter: 25.09 }],
+                        ["450", { diameter: 26.21 }],
+                        ["500", { diameter: 27.25 }],
+                        ["600", { diameter: 30.04 }],
+                        ["700", { diameter: 31.85 }],
+                        ["750", { diameter: 32.71 }],
+                        ["800", { diameter: 33.55 }],
+                        ["900", { diameter: 35.15 }],
+                        ["1000", { diameter: 36.62 }],
+                        ["1250", { diameter: 42.38 }],
+                        ["1500", { diameter: 45.5 }],
+                        ["1750", { diameter: 48.4 }],
+                        ["2000", { diameter: 51.09 }]
+                    ]),
+                    solidConductors: new Map([
+                        ["14", { diameter: 3.91 }],
+                        ["12", { diameter: 4.33 }],
+                        ["10", { diameter: 4.87 }]
+                    ])
+                }
+            }],
+            ["table6D", {
+                types: new Set([
+                    "TWU_UNJACKETED",
+                    "TWU75_UNJACKETED",
+                    "RWU90XLPE_UNJACKETED"
+                ]),
+                specs: {
+                    strandedConductors: new Map([
+                        ["14", { diameter: 4.88 }],
+                        ["12", { diameter: 5.36 }],
+                        ["10", { diameter: 5.97 }],
+                        ["8", { diameter: 7.76 }],
+                        ["6", { diameter: 8.72 }],
+                        ["4", { diameter: 9.95 }],
+                        ["3", { diameter: 10.67 }],
+                        ["2", { diameter: 11.48 }],
+                        ["1", { diameter: 13.25 }],
+                        ["1/0", { diameter: 14.28 }],
+                        ["2/0", { diameter: 15.45 }],
+                        ["3/0", { diameter: 16.76 }],
+                        ["4/0", { diameter: 18.28 }],
+                        ["250", { diameter: 20.2 }],
+                        ["300", { diameter: 21.54 }],
+                        ["350", { diameter: 22.81 }],
+                        ["400", { diameter: 24.07 }],
+                        ["450", { diameter: 25.19 }],
+                        ["500", { diameter: 26.24 }],
+                        ["600", { diameter: 29.02 }],
+                        ["700", { diameter: 30.82 }],
+                        ["750", { diameter: 31.69 }],
+                        ["800", { diameter: 32.53 }],
+                        ["900", { diameter: 34.13 }],
+                        ["1000", { diameter: 35.6 }],
+                        ["1250", { diameter: 39.08 }],
+                        ["1500", { diameter: 42.96 }],
+                        ["1750", { diameter: 45.86 }],
+                        ["2000", { diameter: 48.55 }]
+                    ]),
+                    solidConductors: new Map([
+                        ["14", { diameter: 4.67 }],
+                        ["12", { diameter: 5.09 }],
+                        ["10", { diameter: 5.63 }]
+                    ])
+                }
+            }],
+            ["table6E", {
+                types: new Set([
+                    "RPVU90_UNJACKETED_1000V",
+                    "RPVU90_UNJACKETED_2000V"
+                ]),
+                specs: {
+                    strandedConductors: new Map([
+                        ["14", { diameter: 4.89 }],
+                        ["12", { diameter: 5.36 }],
+                        ["10", { diameter: 5.99 }],
+                        ["8", { diameter: 7.77 }],
+                        ["6", { diameter: 8.73 }],
+                        ["4", { diameter: 9.95 }],
+                        ["3", { diameter: 10.66 }],
+                        ["2", { diameter: 11.48 }],
+                        ["1", { diameter: 13.25 }],
+                        ["1/0", { diameter: 14.27 }],
+                        ["2/0", { diameter: 15.44 }],
+                        ["3/0", { diameter: 16.76 }],
+                        ["4/0", { diameter: 18.23 }],
+                        ["250", { diameter: 20.18 }],
+                        ["300", { diameter: 21.58 }],
+                        ["350", { diameter: 22.88 }],
+                        ["400", { diameter: 24.07 }],
+                        ["450", { diameter: 25.19 }],
+                        ["500", { diameter: 26.23 }],
+                        ["600", { diameter: 29.04 }],
+                        ["700", { diameter: 30.85 }],
+                        ["750", { diameter: 31.71 }],
+                        ["800", { diameter: 32.52 }],
+                        ["900", { diameter: 34.15 }],
+                        ["1000", { diameter: 35.62 }],
+                        ["1250", { diameter: 39.86 }],
+                        ["1500", { diameter: 42.98 }],
+                        ["1750", { diameter: 45.88 }],
+                        ["2000", { diameter: 48.57 }]
+                    ])
+                }
+            }],
+            ["table6F", {
+                types: new Set([
+                    "RPVU90_JACKETED_1000V",
+                    "RPVU90_JACKETED_2000V"
+                ]),
+                specs: {
+                    strandedConductors: new Map([
+                        ["14", { diameter: 5.65 }],
+                        ["12", { diameter: 6.12 }],
+                        ["10", { diameter: 6.75 }],
+                        ["8", { diameter: 9.29 }],
+                        ["6", { diameter: 10.25 }],
+                        ["4", { diameter: 11.47 }],
+                        ["3", { diameter: 12.18 }],
+                        ["2", { diameter: 13.76 }],
+                        ["1", { diameter: 15.53 }],
+                        ["1/0", { diameter: 16.55 }],
+                        ["2/0", { diameter: 17.72 }],
+                        ["3/0", { diameter: 19.04 }],
+                        ["4/0", { diameter: 21.53 }],
+                        ["250", { diameter: 23.48 }],
+                        ["300", { diameter: 24.88 }],
+                        ["350", { diameter: 26.18 }],
+                        ["400", { diameter: 27.37 }],
+                        ["450", { diameter: 28.49 }],
+                        ["500", { diameter: 29.53 }],
+                        ["600", { diameter: 32.34 }],
+                        ["700", { diameter: 34.15 }],
+                        ["750", { diameter: 35.01 }],
+                        ["800", { diameter: 35.82 }],
+                        ["900", { diameter: 37.45 }],
+                        ["1000", { diameter: 38.92 }],
+                        ["1250", { diameter: 44.68 }],
+                        ["1500", { diameter: 47.8 }],
+                        ["1750", { diameter: 50.7 }],
+                        ["2000", { diameter: 53.39 }]
+                    ])
+                }
+            }],
+            ["table6G", {
+                types: new Set([
+                    "RPV90_UNJACKETED_2000V"
+                ]),
+                specs: {
+                    strandedConductors: new Map([
+                        ["14", { diameter: 4.89 }],
+                        ["12", { diameter: 5.36 }],
+                        ["10", { diameter: 5.99 }],
+                        ["8", { diameter: 7.27 }],
+                        ["6", { diameter: 8.23 }],
+                        ["4", { diameter: 9.45 }],
+                        ["3", { diameter: 10.16 }],
+                        ["2", { diameter: 10.98 }],
+                        ["1", { diameter: 13.01 }],
+                        ["1/0", { diameter: 14.03 }],
+                        ["2/0", { diameter: 15.2 }],
+                        ["3/0", { diameter: 16.52 }],
+                        ["4/0", { diameter: 17.99 }],
+                        ["250", { diameter: 19.94 }],
+                        ["300", { diameter: 21.34 }],
+                        ["350", { diameter: 22.64 }],
+                        ["400", { diameter: 23.83 }],
+                        ["450", { diameter: 24.95 }],
+                        ["500", { diameter: 25.99 }],
+                        ["600", { diameter: 28.78 }],
+                        ["700", { diameter: 30.59 }],
+                        ["750", { diameter: 31.45 }],
+                        ["800", { diameter: 32.26 }],
+                        ["900", { diameter: 33.89 }],
+                        ["1000", { diameter: 35.36 }],
+                        ["1250", { diameter: 39.86 }],
+                        ["1500", { diameter: 42.98 }],
+                        ["1750", { diameter: 45.88 }],
+                        ["2000", { diameter: 48.57 }]
+                    ])
+                }
+            }],
+            ["table6H", {
+                types: new Set([
+                    "RPV90_JACKETED_1000V"
+                ]),
+                specs: {
+                    strandedConductors: new Map([
+                        ["14", { diameter: 4.89 }],
+                        ["12", { diameter: 5.36 }],
+                        ["10", { diameter: 5.99 }],
+                        ["8", { diameter: 7.51 }],
+                        ["6", { diameter: 9.23 }],
+                        ["4", { diameter: 10.45 }],
+                        ["3", { diameter: 11.16 }],
+                        ["2", { diameter: 11.98 }],
+                        ["1", { diameter: 14.77 }],
+                        ["1/0", { diameter: 15.79 }],
+                        ["2/0", { diameter: 16.96 }],
+                        ["3/0", { diameter: 18.28 }],
+                        ["4/0", { diameter: 19.75 }],
+                        ["250", { diameter: 22.46 }],
+                        ["300", { diameter: 23.86 }],
+                        ["350", { diameter: 25.16 }],
+                        ["400", { diameter: 26.35 }],
+                        ["450", { diameter: 27.47 }],
+                        ["500", { diameter: 28.51 }],
+                        ["600", { diameter: 30.54 }],
+                        ["700", { diameter: 32.35 }],
+                        ["750", { diameter: 33.21 }],
+                        ["800", { diameter: 34.02 }],
+                        ["900", { diameter: 35.65 }],
+                        ["1000", { diameter: 37.12 }],
+                        ["1250", { diameter: 43.14 }],
+                        ["1500", { diameter: 46.26 }],
+                        ["1750", { diameter: 49.16 }],
+                        ["2000", { diameter: 51.85 }]
+                    ])
+                }
+            }],
+            ["table6I", {
+                types: new Set([
+                    "RPV90_JACKETED_2000V"
+                ]),
+                specs: {
+                    strandedConductors: new Map([
+                        ["14", { diameter: 5.65 }],
+                        ["12", { diameter: 6.12 }],
+                        ["10", { diameter: 7.51 }],
+                        ["8", { diameter: 8.79 }],
+                        ["6", { diameter: 9.75 }],
+                        ["4", { diameter: 10.97 }],
+                        ["3", { diameter: 11.68 }],
+                        ["2", { diameter: 13.26 }],
+                        ["1", { diameter: 15.29 }],
+                        ["1/0", { diameter: 16.31 }],
+                        ["2/0", { diameter: 17.48 }],
+                        ["3/0", { diameter: 18.8 }],
+                        ["4/0", { diameter: 21.29 }],
+                        ["250", { diameter: 23.24 }],
+                        ["300", { diameter: 24.64 }],
+                        ["350", { diameter: 25.94 }],
+                        ["400", { diameter: 27.13 }],
+                        ["450", { diameter: 28.25 }],
+                        ["500", { diameter: 29.29 }],
+                        ["600", { diameter: 32.08 }],
+                        ["700", { diameter: 33.89 }],
+                        ["750", { diameter: 34.75 }],
+                        ["800", { diameter: 35.56 }],
+                        ["900", { diameter: 37.19 }],
+                        ["1000", { diameter: 38.66 }],
+                        ["1250", { diameter: 44.68 }],
+                        ["1500", { diameter: 47.8 }],
+                        ["1750", { diameter: 50.7 }],
+                        ["2000", { diameter: 53.39 }]
+                    ])
+                }
+            }],
+            ["table6J", {
+                types: new Set([
+                    "TW",
+                    "TW75"
+                ]),
+                specs: {
+                    strandedConductors: new Map([
+                        ["14", { diameter: 3.36 }],
+                        ["12", { diameter: 3.84 }],
+                        ["10", { diameter: 4.47 }],
+                        ["8", { diameter: 5.99 }],
+                        ["6", { diameter: 7.71 }],
+                        ["4", { diameter: 8.93 }],
+                        ["3", { diameter: 9.64 }],
+                        ["2", { diameter: 10.46 }],
+                        ["1", { diameter: 12.49 }],
+                        ["1/0", { diameter: 13.53 }],
+                        ["2/0", { diameter: 14.7 }],
+                        ["3/0", { diameter: 16.0 }],
+                        ["4/0", { diameter: 17.47 }],
+                        ["250", { diameter: 19.43 }],
+                        ["300", { diameter: 20.82 }],
+                        ["350", { diameter: 22.05 }],
+                        ["400", { diameter: 23.31 }],
+                        ["450", { diameter: 24.43 }],
+                        ["500", { diameter: 25.47 }],
+                        ["600", { diameter: 28.26 }],
+                        ["700", { diameter: 30.07 }],
+                        ["750", { diameter: 30.93 }],
+                        ["800", { diameter: 31.77 }],
+                        ["900", { diameter: 33.37 }],
+                        ["1000", { diameter: 34.84 }],
+                        ["1250", { diameter: 39.08 }],
+                        ["1500", { diameter: 42.2 }],
+                        ["1750", { diameter: 45.1 }],
+                        ["2000", { diameter: 47.79 }]
+                    ]),
+                    solidConductors: new Map([
+                        ["14", { diameter: 3.15 }],
+                        ["12", { diameter: 3.57 }],
+                        ["10", { diameter: 4.11 }]
+                    ])
+                }
+            }],
+            ["table6K", {
+                types: new Set([
+                    "TWN75",
+                    "T90 NYLON"
+                ]),
+                specs: {
+                    strandedConductors: new Map([
+                        ["14", { diameter: 2.8 }],
+                        ["12", { diameter: 3.28 }],
+                        ["10", { diameter: 4.17 }],
+                        ["8", { diameter: 5.49 }],
+                        ["6", { diameter: 6.45 }],
+                        ["4", { diameter: 8.23 }],
+                        ["3", { diameter: 8.94 }],
+                        ["2", { diameter: 9.76 }],
+                        ["1", { diameter: 11.33 }],
+                        ["1/0", { diameter: 12.37 }],
+                        ["2/0", { diameter: 13.54 }],
+                        ["3/0", { diameter: 14.84 }],
+                        ["4/0", { diameter: 16.31 }],
+                        ["250", { diameter: 18.04 }],
+                        ["300", { diameter: 19.44 }],
+                        ["350", { diameter: 20.67 }],
+                        ["400", { diameter: 21.93 }],
+                        ["450", { diameter: 23.05 }],
+                        ["500", { diameter: 24.09 }]
+                    ]),
+                    solidConductors: new Map([
+                        ["14", { diameter: 2.59 }],
+                        ["12", { diameter: 3.01 }],
+                        ["10", { diameter: 3.81 }]
+                    ])
+                }
+            }]
+        ])
     },
     table8: {
         description: "Maximum allowable per cent conduit and tubing fill",
@@ -969,211 +1003,211 @@ export const tables = {
         },
     },
     table9: {
-            rigidMetalConduit: {
-              "16": { diameter: 16.05 },
-              "21": { diameter: 21.23 },
-              "27": { diameter: 27.0 },
-              "35": { diameter: 35.41 },
-              "41": { diameter: 41.25 },
-              "53": { diameter: 52.91 },
-              "63": { diameter: 63.22 },
-              "78": { diameter: 78.49 },
-              "91": { diameter: 90.68 },
-              "103": { diameter: 102.87 },
-              "129": { diameter: 128.85 },
-              "155": { diameter: 154.76 }
-            },
-            flexibleMetalConduit: {
-              "12": { diameter: 9.52 },
-              "16": { diameter: 15.88 },
-              "21": { diameter: 20.62 },
-              "27": { diameter: 25.4 },
-              "35": { diameter: 31.75 },
-              "41": { diameter: 38.1 },
-              "53": { diameter: 50.8 },
-              "63": { diameter: 63.5 },
-              "78": { diameter: 76.2 },
-              "91": { diameter: 88.9 },
-              "103": { diameter: 101.6 }
-            },
-            rigidPVCConduit: {
-              "16": { diameter: 14.57 },
-              "21": { diameter: 19.77 },
-              "27": { diameter: 25.4 },
-              "35": { diameter: 31.75 },
-              "41": { diameter: 38.1 },
-              "53": { diameter: 50.8 },
-              "63": { diameter: 61.3 },
-              "78": { diameter: 76.2 },
-              "91": { diameter: 88.4 },
-              "103": { diameter: 100.1 },
-              "129": { diameter: 125.85 },
-              "155": { diameter: 149.75 },
-              "200": { diameter: 199.39 }
-            },
-            rigidTypeEB1PVCConduit: {
-              "53": { diameter: 50.8 },
-              "78": { diameter: 76.2 },
-              "91": { diameter: 88.4 },
-              "103": { diameter: 100.1 },
-              "129": { diameter: 126.35 },
-              "155": { diameter: 149.75 }
-            },
-            metallicLiquidTightFlexibleConduit: {
-              "12": { diameter: 12.29 },
-              "16": { diameter: 15.8 },
-              "21": { diameter: 20.83 },
-              "27": { diameter: 26.44 },
-              "35": { diameter: 35.05 },
-              "41": { diameter: 40.01 },
-              "53": { diameter: 51.31 },
-              "63": { diameter: 62.99 },
-              "78": { diameter: 77.98 },
-              "91": { diameter: 88.9 },
-              "103": { diameter: 101.6 }
-            },
-            nonMetallicLiquidTightFlexibleConduit: {
-              "12": { diameter: 12.07 },
-              "16": { diameter: 15.49 },
-              "21": { diameter: 20.45 },
-              "27": { diameter: 25.91 },
-              "35": { diameter: 34.54 },
-              "41": { diameter: 40.01 },
-              "53": { diameter: 51.69 }
-            },
-            electricalMetallicTubing: {
-              "16": { diameter: 15.4 },
-              "21": { diameter: 20.5 },
-              "27": { diameter: 26.2 },
-              "35": { diameter: 34.6 },
-              "41": { diameter: 40.5 },
-              "53": { diameter: 52.1 },
-              "63": { diameter: 69.4 },
-              "78": { diameter: 85.2 },
-              "91": { diameter: 97.4 },
-              "103": { diameter: 110.0 }
-            },
-            electricalNonMetallicTubing: {
-              "16": { diameter: 14.58 },
-              "21": { diameter: 19.66 },
-              "27": { diameter: 25.37 },
-              "35": { diameter: 33.73 },
-              "41": { diameter: 39.57 },
-              "53": { diameter: 51.18 }
-            },
-            rigidRTRCConduitMarkedIPS: {
-              "16": { diameter: 17.27 },
-              "21": { diameter: 22.61 },
-              "27": { diameter: 29.34 },
-              "35": { diameter: 38.1 },
-              "41": { diameter: 44.2 },
-              "53": { diameter: 56.26 },
-              "63": { diameter: 69.6 },
-              "78": { diameter: 84.84 },
-              "103": { diameter: 109.72 },
-              "129": { diameter: 136.14 },
-              "155": { diameter: 162.05 }
-            },
-            rigidRTRCConduitMarkedID: {
-              "16": { diameter: 11.94 },
-              "21": { diameter: 18.29 },
-              "27": { diameter: 24.64 },
-              "35": { diameter: 30.99 },
-              "41": { diameter: 37.34 },
-              "53": { diameter: 50.29 },
-              "63": { diameter: 63.0 },
-              "78": { diameter: 75.69 },
-              "91": { diameter: 88.39 },
-              "103": { diameter: 101.09 },
-              "129": { diameter: 126.24 }
-            },
-            HDPEConduitSchedule40: {
-              "16": { diameter: 14.67 },
-              "21": { diameter: 19.78 },
-              "27": { diameter: 25.4 },
-              "35": { diameter: 33.82 },
-              "41": { diameter: 39.63 },
-              "53": { diameter: 51.18 },
-              "63": { diameter: 61.13 },
-              "78": { diameter: 76.14 },
-              "103": { diameter: 100.26 },
-              "129": { diameter: 125.91 },
-              "155": { diameter: 151.5 },
-              "200": { diameter: 199.64 }
-            },
-            HDPEConduitSchedule80: {
-              "16": { diameter: 12.75 },
-              "21": { diameter: 17.7 },
-              "27": { diameter: 23.06 },
-              "35": { diameter: 31.1 },
-              "41": { diameter: 36.63 },
-              "53": { diameter: 47.82 },
-              "63": { diameter: 56.97 },
-              "78": { diameter: 71.38 },
-              "103": { diameter: 94.56 },
-              "129": { diameter: 119.25 },
-              "155": { diameter: 142.86 }
-            },
-            HDPEDR9Conduit: {
-              "16": { diameter: 15.47 },
-              "21": { diameter: 19.65 },
-              "27": { diameter: 24.86 },
-              "35": { diameter: 31.51 },
-              "41": { diameter: 36.1 },
-              "53": { diameter: 45.19 },
-              "63": { diameter: 54.63 },
-              "78": { diameter: 66.56 },
-              "103": { diameter: 85.36 },
-              "129": { diameter: 105.54 },
-              "155": { diameter: 125.63 },
-              "200": { diameter: 163.58 },
-              "275": { diameter: 203.84 }
-            },
-            HDPEDR11Conduit: {
-              "16": { diameter: 16.3 },
-              "21": { diameter: 20.73 },
-              "27": { diameter: 26.21 },
-              "35": { diameter: 33.31 },
-              "41": { diameter: 38.27 },
-              "53": { diameter: 47.91 },
-              "63": { diameter: 57.92 },
-              "78": { diameter: 70.6 },
-              "103": { diameter: 90.52 },
-              "129": { diameter: 111.93 },
-              "155": { diameter: 133.22 },
-              "200": { diameter: 173.49 },
-              "275": { diameter: 216.19 }
-            },
-            HDPEDR13_5Conduit: {
-                "16": { diameter: 17.02},
-                "21": { diameter: 21.63,},
-                "27": { diameter: 27.33,},
-                "35": { diameter: 34.73,},
-                "41": { diameter: 39.93},
-                "53": { diameter: 50.18,},
-                "63": { diameter: 60.68, },
-                "78": { diameter: 73.95, },
-                "103": { diameter: 94.83, },
-                "129": { diameter: 117.25, },
-                "155": { diameter: 139.57, },
-                "200": { diameter: 181.74, },
-                "275": { diameter: 226.49,  }
-              },
-              HDPEDR15_5Conduit: {
-                "16": { diameter: 17.43},
-                "21": { diameter: 22.14 },
-                "27": { diameter: 27.97 },
-                "35": { diameter: 35.54 },
-                "41": { diameter: 40.85 },
-                "53": { diameter: 51.4 },
-                "63": { diameter: 62.24 },
-                "78": { diameter: 75.85, },
-                "103": { diameter: 97.29, },
-                "129": { diameter: 120.29, },
-                "155": { diameter: 143.19, },
-                "200": { diameter: 186.43,  },
-                "275": { diameter: 232.35,  }
-              }
-            
+        rigidMetalConduit: {
+            "16": { diameter: 16.05 },
+            "21": { diameter: 21.23 },
+            "27": { diameter: 27.0 },
+            "35": { diameter: 35.41 },
+            "41": { diameter: 41.25 },
+            "53": { diameter: 52.91 },
+            "63": { diameter: 63.22 },
+            "78": { diameter: 78.49 },
+            "91": { diameter: 90.68 },
+            "103": { diameter: 102.87 },
+            "129": { diameter: 128.85 },
+            "155": { diameter: 154.76 }
+        },
+        flexibleMetalConduit: {
+            "12": { diameter: 9.52 },
+            "16": { diameter: 15.88 },
+            "21": { diameter: 20.62 },
+            "27": { diameter: 25.4 },
+            "35": { diameter: 31.75 },
+            "41": { diameter: 38.1 },
+            "53": { diameter: 50.8 },
+            "63": { diameter: 63.5 },
+            "78": { diameter: 76.2 },
+            "91": { diameter: 88.9 },
+            "103": { diameter: 101.6 }
+        },
+        rigidPVCConduit: {
+            "16": { diameter: 14.57 },
+            "21": { diameter: 19.77 },
+            "27": { diameter: 25.4 },
+            "35": { diameter: 31.75 },
+            "41": { diameter: 38.1 },
+            "53": { diameter: 50.8 },
+            "63": { diameter: 61.3 },
+            "78": { diameter: 76.2 },
+            "91": { diameter: 88.4 },
+            "103": { diameter: 100.1 },
+            "129": { diameter: 125.85 },
+            "155": { diameter: 149.75 },
+            "200": { diameter: 199.39 }
+        },
+        rigidTypeEB1PVCConduit: {
+            "53": { diameter: 50.8 },
+            "78": { diameter: 76.2 },
+            "91": { diameter: 88.4 },
+            "103": { diameter: 100.1 },
+            "129": { diameter: 126.35 },
+            "155": { diameter: 149.75 }
+        },
+        metallicLiquidTightFlexibleConduit: {
+            "12": { diameter: 12.29 },
+            "16": { diameter: 15.8 },
+            "21": { diameter: 20.83 },
+            "27": { diameter: 26.44 },
+            "35": { diameter: 35.05 },
+            "41": { diameter: 40.01 },
+            "53": { diameter: 51.31 },
+            "63": { diameter: 62.99 },
+            "78": { diameter: 77.98 },
+            "91": { diameter: 88.9 },
+            "103": { diameter: 101.6 }
+        },
+        nonMetallicLiquidTightFlexibleConduit: {
+            "12": { diameter: 12.07 },
+            "16": { diameter: 15.49 },
+            "21": { diameter: 20.45 },
+            "27": { diameter: 25.91 },
+            "35": { diameter: 34.54 },
+            "41": { diameter: 40.01 },
+            "53": { diameter: 51.69 }
+        },
+        electricalMetallicTubing: {
+            "16": { diameter: 15.4 },
+            "21": { diameter: 20.5 },
+            "27": { diameter: 26.2 },
+            "35": { diameter: 34.6 },
+            "41": { diameter: 40.5 },
+            "53": { diameter: 52.1 },
+            "63": { diameter: 69.4 },
+            "78": { diameter: 85.2 },
+            "91": { diameter: 97.4 },
+            "103": { diameter: 110.0 }
+        },
+        electricalNonMetallicTubing: {
+            "16": { diameter: 14.58 },
+            "21": { diameter: 19.66 },
+            "27": { diameter: 25.37 },
+            "35": { diameter: 33.73 },
+            "41": { diameter: 39.57 },
+            "53": { diameter: 51.18 }
+        },
+        rigidRTRCConduitMarkedIPS: {
+            "16": { diameter: 17.27 },
+            "21": { diameter: 22.61 },
+            "27": { diameter: 29.34 },
+            "35": { diameter: 38.1 },
+            "41": { diameter: 44.2 },
+            "53": { diameter: 56.26 },
+            "63": { diameter: 69.6 },
+            "78": { diameter: 84.84 },
+            "103": { diameter: 109.72 },
+            "129": { diameter: 136.14 },
+            "155": { diameter: 162.05 }
+        },
+        rigidRTRCConduitMarkedID: {
+            "16": { diameter: 11.94 },
+            "21": { diameter: 18.29 },
+            "27": { diameter: 24.64 },
+            "35": { diameter: 30.99 },
+            "41": { diameter: 37.34 },
+            "53": { diameter: 50.29 },
+            "63": { diameter: 63.0 },
+            "78": { diameter: 75.69 },
+            "91": { diameter: 88.39 },
+            "103": { diameter: 101.09 },
+            "129": { diameter: 126.24 }
+        },
+        HDPEConduitSchedule40: {
+            "16": { diameter: 14.67 },
+            "21": { diameter: 19.78 },
+            "27": { diameter: 25.4 },
+            "35": { diameter: 33.82 },
+            "41": { diameter: 39.63 },
+            "53": { diameter: 51.18 },
+            "63": { diameter: 61.13 },
+            "78": { diameter: 76.14 },
+            "103": { diameter: 100.26 },
+            "129": { diameter: 125.91 },
+            "155": { diameter: 151.5 },
+            "200": { diameter: 199.64 }
+        },
+        HDPEConduitSchedule80: {
+            "16": { diameter: 12.75 },
+            "21": { diameter: 17.7 },
+            "27": { diameter: 23.06 },
+            "35": { diameter: 31.1 },
+            "41": { diameter: 36.63 },
+            "53": { diameter: 47.82 },
+            "63": { diameter: 56.97 },
+            "78": { diameter: 71.38 },
+            "103": { diameter: 94.56 },
+            "129": { diameter: 119.25 },
+            "155": { diameter: 142.86 }
+        },
+        HDPEDR9Conduit: {
+            "16": { diameter: 15.47 },
+            "21": { diameter: 19.65 },
+            "27": { diameter: 24.86 },
+            "35": { diameter: 31.51 },
+            "41": { diameter: 36.1 },
+            "53": { diameter: 45.19 },
+            "63": { diameter: 54.63 },
+            "78": { diameter: 66.56 },
+            "103": { diameter: 85.36 },
+            "129": { diameter: 105.54 },
+            "155": { diameter: 125.63 },
+            "200": { diameter: 163.58 },
+            "275": { diameter: 203.84 }
+        },
+        HDPEDR11Conduit: {
+            "16": { diameter: 16.3 },
+            "21": { diameter: 20.73 },
+            "27": { diameter: 26.21 },
+            "35": { diameter: 33.31 },
+            "41": { diameter: 38.27 },
+            "53": { diameter: 47.91 },
+            "63": { diameter: 57.92 },
+            "78": { diameter: 70.6 },
+            "103": { diameter: 90.52 },
+            "129": { diameter: 111.93 },
+            "155": { diameter: 133.22 },
+            "200": { diameter: 173.49 },
+            "275": { diameter: 216.19 }
+        },
+        HDPEDR13_5Conduit: {
+            "16": { diameter: 17.02 },
+            "21": { diameter: 21.63, },
+            "27": { diameter: 27.33, },
+            "35": { diameter: 34.73, },
+            "41": { diameter: 39.93 },
+            "53": { diameter: 50.18, },
+            "63": { diameter: 60.68, },
+            "78": { diameter: 73.95, },
+            "103": { diameter: 94.83, },
+            "129": { diameter: 117.25, },
+            "155": { diameter: 139.57, },
+            "200": { diameter: 181.74, },
+            "275": { diameter: 226.49, }
+        },
+        HDPEDR15_5Conduit: {
+            "16": { diameter: 17.43 },
+            "21": { diameter: 22.14 },
+            "27": { diameter: 27.97 },
+            "35": { diameter: 35.54 },
+            "41": { diameter: 40.85 },
+            "53": { diameter: 51.4 },
+            "63": { diameter: 62.24 },
+            "78": { diameter: 75.85, },
+            "103": { diameter: 97.29, },
+            "129": { diameter: 120.29, },
+            "155": { diameter: 143.19, },
+            "200": { diameter: 186.43, },
+            "275": { diameter: 232.35, }
+        }
+
     }
 }

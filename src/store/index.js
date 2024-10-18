@@ -18,13 +18,22 @@ export const useLoadStore = defineStore('load', {
     feederSize: '',
     conductorMaterial: 'copper', // Default to copper
     temperature: '75c', // Default temperature
-
+    // totalWireArea: 0,
+    // conduitArea: 0,
+    isFillValid: false,
+    maxWireCount: 200, // 最大导线数量限制
     // === ConduitFillCalculator.vue Specific State ===
     selectedWireType: 'R90XLPE_UNJACKETED_600V',
     wireSize: '14',
     conduitSize: '21',
     numConductors: 1,
-
+    // maxFillPercentage: 0.53,
+    totalAreas: [], // 存储每次导线面积
+    totalWireCount: 0, // 存储导线的总根数
+    selectedConduitType: 'rigidMetalConduit', // Default to the first conduit type
+    strandOrSolidWire: 'strandedConductors', //solidConductors
+    showConductorSelection: true,
+    result: false,
     // === Common/Shared State (Used by Multiple Components) ===
     tables: tables, // Shared lookup tables
     volRating: 0, // Voltage rating used across components
@@ -33,26 +42,58 @@ export const useLoadStore = defineStore('load', {
 
   getters: {
     // === ConduitFillCalculator.vue Specific Getters ===
-    totalWireArea(state) {
-      const wireTypeTable = state.findWireTypeTable(state.selectedWireType);
-      const wireData = tables.table6.wireSpecs[wireTypeTable]?.strandedConductors[state.wireSize];
-      if (wireData) {
-        const wireArea = (wireData.diameter ** 2 * Math.PI) / 4;
-        return wireArea * state.numConductors;
+    // totalWireArea(state) {
+    //   const wireTypeTable = state.findWireTypeTable(state.selectedWireType);
+    //   console.log("wire table is: ", wireTypeTable);
+    //   const wireData = tables.table6.wireData[wireTypeTable]?.specs.strandedConductors[state.wireSize];
+    //   console.log("wireData is: ",  tables.table6.wireData);
+    //   if (wireData) {
+    //     const wireArea = (wireData.diameter ** 2 * Math.PI) / 4;
+    //     return wireArea * state.numConductors;
+    //   }
+    //   return 0;
+    // },
+
+    getTotalWireArea() {
+      const wireTypeTable = this.findWireTypeTable(this.selectedWireType);
+      if (!wireTypeTable || !this.tables.table6.wireData.has(wireTypeTable)) {
+        return 0;
       }
-      return 0;
+
+      const wireSpecs = this.tables.table6.wireData.get(wireTypeTable).specs.strandedConductors.get(this.wireSize);
+      if (!wireSpecs) {
+        return 0;
+      }
+
+      return this.calculateArea(wireSpecs.diameter, this.numConductors);
     },
-    conduitArea(state) {
+
+    getConduitArea(state) {
       const conduitData = tables.table9.rigidMetalConduit[state.conduitSize];
       if (conduitData) {
-        return (conduitData.diameter ** 2 * Math.PI) / 4;
+        return ((conduitData.diameter ** 2 * Math.PI) / 4).toFixed(0);
       }
       return 0;
     },
-    isFillValid(state) {
-      const maxFillPercentage = 0.4; // 40% max fill percentage
-      return state.totalWireArea <= state.conduitArea * maxFillPercentage;
+
+    accumulatedWireArea(state) {
+      return state.totalAreas.reduce((sum, area) => sum + area, 0);
     },
+    // 判断是否在允许的填充范围内
+    isTotalFillValid(state) {
+      const maxFillPercentage = 0.4; // 40% 填充比例
+      return state.accumulatedWireArea <= state.conduitArea * maxFillPercentage;
+    },
+    // 检查导线总数是否超过200
+    isWireCountValid(state) {
+      return state.totalWireCount <= state.maxWireCount;
+    },
+
+    // getIsFillValid(state) {
+    //   this.maxFillPercentage = this.calculateMaxFillPercentage(state.numConductors, state.isLeadSheathed);
+    //   return state.totalWireArea <= state.conduitArea * this.maxFillPercentage;
+    // },
+
 
     // === LoadCalculator.vue Specific Getters ===
     // These can be added if needed in the future
@@ -66,17 +107,28 @@ export const useLoadStore = defineStore('load', {
     calculateArea(diameter, count = 1) {
       const radius = diameter / 2;
       const area = Math.PI * Math.pow(radius, 2);
-      return area * count;
+      return (area * count).toFixed(2);
     },
+
     findWireTypeTable(wireType) {
-      for (const [table, types] of Object.entries(tables.table6.wireTypes)) {
-        if (Array.isArray(types) && types.includes(wireType)) {
-          return table;
-        } else if (types === wireType) {
+      for (const [table, data] of tables.table6.wireData.entries()) {
+        if (data.types.has(wireType)) {
           return table;
         }
       }
       return null;
+    },
+
+    // 添加导线截面积和根数
+    addWireArea(newArea, wireCount) {
+      this.totalAreas.push(newArea); // 将导线截面积加入数组
+      this.totalWireCount += wireCount; // 累加导线的根数
+    },
+
+    // 清空所有已添加的导线
+    clearAreas() {
+      this.totalAreas = []; // 清空面积
+      this.totalWireCount = 0; // 清空导线数量
     },
 
     // === ConduitFillCalculator.vue Specific Actions ===
@@ -92,11 +144,78 @@ export const useLoadStore = defineStore('load', {
     setNumConductors(count) {
       this.numConductors = count;
     },
-     // Helper to check if the conduit fill is valid
-     calculateConduitFill(totalWireArea, conduitArea, maxFillPercentage = 0.4) {
+    // Helper to check if the conduit fill is valid
+    calculateConduitFill(totalWireArea, conduitArea, maxFillPercentage = 0.4) {
       return totalWireArea <= conduitArea * maxFillPercentage;
     },
 
+
+    calculateMaxFillPercentage(numConductors, isLeadSheathed = false) {
+      let maxFillPercent;
+
+      // For non-lead-sheathed cables
+      if (!isLeadSheathed) {
+        if (numConductors === 1) {
+          maxFillPercent = 0.53; // 53% for 1 conductor
+        } else if (numConductors === 2) {
+          maxFillPercent = 0.31; // 31% for 2 conductors
+        } else if (numConductors === 3 || numConductors === 4) {
+          maxFillPercent = 0.40; // 40% for 3 or 4 conductors
+        } else if (numConductors > 4) {
+          maxFillPercent = 0.40; // 40% for more than 4 conductors (non-lead-sheathed)
+        }
+      } else {
+        // For lead-sheathed cables
+        if (numConductors === 1) {
+          maxFillPercent = 0.55; // 55% for 1 lead-sheathed conductor
+        } else if (numConductors === 2) {
+          maxFillPercent = 0.30; // 30% for 2 lead-sheathed conductors
+        } else if (numConductors === 3) {
+          maxFillPercent = 0.40; // 40% for 3 lead-sheathed conductors
+        } else if (numConductors === 4) {
+          maxFillPercent = 0.38; // 38% for 4 lead-sheathed conductors
+        } else if (numConductors > 4) {
+          maxFillPercent = 0.35; // 35% for more than 4 lead-sheathed conductors
+        }
+      }
+
+      return maxFillPercent;
+    },
+
+    findWireTableForType(selectedWireType) {
+      for (const [table, data] of this.tables.table6.wireData.entries()) {
+        if (data.types.has(selectedWireType)) {
+          return table;
+        }
+      }
+      return null;
+    },
+    updateConductorOptions() {
+      const wireTable = this.findWireTableForType(this.selectedWireType);
+      const selectedWireData = this.tables.table6.wireData.get(wireTable);
+
+      if (selectedWireData) {
+        const hasStranded = !!selectedWireData.specs.strandedConductors;
+        const hasSolid = !!selectedWireData.specs.solidConductors;
+
+        // Show dropdown if both stranded and solid conductors are available
+        this.showConductorSelection = hasStranded && hasSolid;
+        // Set default to stranded conductors
+        this.strandOrSolidWire = hasStranded ? 'strandedConductors' : 'solidConductors';
+      }
+    },
+    updateWireSizes() {
+      const wireTable = this.findWireTableForType(this.selectedWireType);
+      const wireData = this.tables.table6.wireData.get(wireTable)?.specs[this.strandOrSolidWire];
+      this.wireSizes = wireData ? Array.from(wireData.keys()) : [];
+      this.wireSize = this.wireSizes.length > 0 ? this.wireSizes : '';
+    },
+    calculateFill() {
+      this.totalWireArea = this.getTotalWireArea;
+      this.conduitArea = this.getConduitArea;
+      this.isFillValid = this.isTotalFillValid;
+      this.result = true;
+    },
     // === LoadCalculator.vue Specific Actions ===
     calculateTotalLoad() {
       const totalLivingArea = this.aboveGroundFloorArea + (this.belowGroundFloorArea * 0.75);
